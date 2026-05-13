@@ -47,3 +47,7 @@ runs/
 # Secrets
 secrets.json
 credentials.json
+
+
+
+*.zip
