@@ -1,0 +1,26 @@
+{
+  "disease": "Early Blight",
+  "arabic_name": "اللفحة المبكرة",
+  "symptoms": [
+    "Concentric ring lesions (target spots) on older leaves",
+    "Yellowing, defoliation"
+  ],
+  "treatments": [
+    "Fungicides when thresholds reached"
+  ],
+  "local_pesticides": [
+    "Mancozeb or alternaria-specific fungicides (rotate)"
+  ],
+  "prevention": [
+    "Crop rotation, certified seed, balanced fertility"
+  ],
+  "palestine_risk_season": [
+    "Mid to late season"
+  ],
+  "local_advice": [
+    "Common in West Bank potato fields; manage to protect yield."
+  ],
+  "sources": [
+    "Regional potato pathology"
+  ]
+}

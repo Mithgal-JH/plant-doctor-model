@@ -1,0 +1,17 @@
+{
+  "disease": "Healthy",
+  "arabic_name": "صحي",
+  "symptoms": [],
+  "treatments": [],
+  "local_pesticides": [],
+  "prevention": [
+    "Good ventilation, sanitation"
+  ],
+  "palestine_risk_season": [],
+  "local_advice": [
+    "Monitor for viral and bacterial threats common in Palestinian protected agriculture."
+  ],
+  "sources": [
+    "Palestinian agricultural extension"
+  ]
+}

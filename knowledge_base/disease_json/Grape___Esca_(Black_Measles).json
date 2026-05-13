@@ -1,0 +1,26 @@
+{
+  "disease": "Esca (Black Measles)",
+  "arabic_name": "إسكا (الحصبة السوداء)",
+  "symptoms": [
+    "Tiger-stripe leaf patterns, wood necrosis",
+    "Black spots on berries in severe cases"
+  ],
+  "treatments": [
+    "No fully curative; trunk renewal in severe cases"
+  ],
+  "local_pesticides": [
+    "Limited; focus on prevention"
+  ],
+  "prevention": [
+    "Avoid wounding, sanitation, use healthy planting material"
+  ],
+  "palestine_risk_season": [
+    "Throughout growing season in older vines"
+  ],
+  "local_advice": [
+    "Grapevine trunk disease reported in regional vineyards; long-term management needed."
+  ],
+  "sources": [
+    "Grapevine trunk disease research in Levant (Jordan, etc.)"
+  ]
+}

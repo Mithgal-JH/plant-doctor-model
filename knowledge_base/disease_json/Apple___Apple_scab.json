@@ -1,0 +1,28 @@
+{
+  "disease": "Apple Scab",
+  "arabic_name": "جرب التفاح",
+  "symptoms": [
+    "Olive-brown to velvety green/black lesions on leaves and fruit",
+    "Distorted leaves, premature leaf drop",
+    "Scabby, cracked fruit lesions"
+  ],
+  "treatments": [
+    "Protectant fungicides applied on schedule during wet spring periods"
+  ],
+  "local_pesticides": [
+    "Sulfur-based, captan, or other MoA-approved fungicides (rotate modes of action)"
+  ],
+  "prevention": [
+    "Resistant varieties, sanitation (remove fallen leaves), pruning for airflow",
+    "Dormant sprays"
+  ],
+  "palestine_risk_season": [
+    "Spring (wet periods in West Bank highlands)"
+  ],
+  "local_advice": [
+    "Common in apple orchards; monitor humidity. Cultural practices key in resource-limited settings."
+  ],
+  "sources": [
+    "Plantwise Knowledge Bank; regional Levant pome fruit research (Jordan/Lebanon analogs)"
+  ]
+}

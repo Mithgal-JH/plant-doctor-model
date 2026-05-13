@@ -1,0 +1,25 @@
+{
+  "disease": "Leaf Mold",
+  "arabic_name": "عفن الأوراق",
+  "symptoms": [
+    "Yellow spots upper leaf, olive-green mold underside"
+  ],
+  "treatments": [
+    "Fungicides"
+  ],
+  "local_pesticides": [
+    "Registered protectants"
+  ],
+  "prevention": [
+    "Greenhouse ventilation, resistant varieties"
+  ],
+  "palestine_risk_season": [
+    "Humid protected cultivation"
+  ],
+  "local_advice": [
+    "Problem in tunnels/greenhouses common in Palestine."
+  ],
+  "sources": [
+    "Protected agriculture studies"
+  ]
+}

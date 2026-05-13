@@ -1,0 +1,26 @@
+{
+  "disease": "Cedar Apple Rust",
+  "arabic_name": "صدأ التفاح والأرز",
+  "symptoms": [
+    "Yellow-orange spots on upper leaf surface",
+    "Rust-colored spots on fruit"
+  ],
+  "treatments": [
+    "Fungicides during infection periods"
+  ],
+  "local_pesticides": [
+    "Approved protectant fungicides"
+  ],
+  "prevention": [
+    "Remove nearby alternate hosts (junipers/cedars), resistant varieties"
+  ],
+  "palestine_risk_season": [
+    "Spring-summer"
+  ],
+  "local_advice": [
+    "Relevant in mixed landscapes of the West Bank."
+  ],
+  "sources": [
+    "Mediterranean fruit pathology references"
+  ]
+}

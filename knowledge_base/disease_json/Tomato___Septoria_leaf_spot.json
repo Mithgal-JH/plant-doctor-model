@@ -1,0 +1,25 @@
+{
+  "disease": "Septoria Leaf Spot",
+  "arabic_name": "بقع septoria على الأوراق",
+  "symptoms": [
+    "Small circular spots with dark margins on leaves"
+  ],
+  "treatments": [
+    "Fungicides"
+  ],
+  "local_pesticides": [
+    "Copper or mancozeb-based"
+  ],
+  "prevention": [
+    "Sanitation, rotation"
+  ],
+  "palestine_risk_season": [
+    "Mid-season"
+  ],
+  "local_advice": [
+    "Manage with cultural practices."
+  ],
+  "sources": [
+    "Standard tomato pathology"
+  ]
+}

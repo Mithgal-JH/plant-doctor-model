@@ -1,0 +1,26 @@
+{
+  "disease": "Bacterial Spot",
+  "arabic_name": "البقع البكتيرية",
+  "symptoms": [
+    "Small water-soaked spots on leaves becoming necrotic",
+    "Fruit lesions causing scabbing"
+  ],
+  "treatments": [
+    "Copper-based bactericides (preventive)"
+  ],
+  "local_pesticides": [
+    "Copper formulations per local registration"
+  ],
+  "prevention": [
+    "Pathogen-free seeds, crop rotation, avoid overhead irrigation"
+  ],
+  "palestine_risk_season": [
+    "Warm, wet periods"
+  ],
+  "local_advice": [
+    "Prevalent in Mediterranean pepper-growing regions; residue management important."
+  ],
+  "sources": [
+    "Eastern Mediterranean bacterial disease surveys (Turkey/Jordan analogs)"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "disease": "Two-Spotted Spider Mite",
+  "arabic_name": "العنكبوت الأحمر ذو البقعتين",
+  "symptoms": [
+    "Stippling on leaves, fine webbing",
+    "Leaf yellowing and drop"
+  ],
+  "treatments": [
+    "Acaricides or miticides when thresholds exceeded"
+  ],
+  "local_pesticides": [
+    "Approved acaricides (rotate to manage resistance)"
+  ],
+  "prevention": [
+    "Dust reduction, encourage natural enemies, overhead irrigation where feasible"
+  ],
+  "palestine_risk_season": [
+    "Hot dry summer"
+  ],
+  "local_advice": [
+    "Severe in hot/dry West Bank conditions; biological control preferred."
+  ],
+  "sources": [
+    "Regional mite management"
+  ]
+}

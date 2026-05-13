@@ -1,0 +1,17 @@
+{
+  "disease": "Healthy",
+  "arabic_name": "صحي",
+  "symptoms": [],
+  "treatments": [],
+  "local_pesticides": [],
+  "prevention": [
+    "Regular monitoring, good cultural practices, balanced nutrition"
+  ],
+  "palestine_risk_season": [],
+  "local_advice": [
+    "Continue IPM monitoring for early detection of threats in Palestinian orchards."
+  ],
+  "sources": [
+    "Palestinian Ministry of Agriculture extension guidelines"
+  ]
+}

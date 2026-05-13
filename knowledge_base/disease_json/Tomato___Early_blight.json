@@ -1,0 +1,26 @@
+{
+  "disease": "Early Blight",
+  "arabic_name": "اللفحة المبكرة",
+  "symptoms": [
+    "Target-like concentric rings on older leaves",
+    "Stem and fruit lesions"
+  ],
+  "treatments": [
+    "Fungicide program"
+  ],
+  "local_pesticides": [
+    "Mancozeb, chlorothalonil alternatives per registration"
+  ],
+  "prevention": [
+    "Mulching, rotation, resistant/tolerant varieties"
+  ],
+  "palestine_risk_season": [
+    "Throughout season, higher in stress conditions"
+  ],
+  "local_advice": [
+    "Very common; lower canopy management helps."
+  ],
+  "sources": [
+    "Tomato disease studies in Mediterranean"
+  ]
+}

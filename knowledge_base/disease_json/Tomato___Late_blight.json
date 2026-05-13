@@ -1,0 +1,27 @@
+{
+  "disease": "Late Blight",
+  "arabic_name": "اللفحة المتأخرة",
+  "symptoms": [
+    "Dark water-soaked foliar lesions",
+    "White mold underside in humidity",
+    "Fruit rot"
+  ],
+  "treatments": [
+    "Preventive fungicides"
+  ],
+  "local_pesticides": [
+    "Copper, mancozeb, metalaxyl (rotate)"
+  ],
+  "prevention": [
+    "Resistant varieties, avoid overhead water"
+  ],
+  "palestine_risk_season": [
+    "Cool humid periods"
+  ],
+  "local_advice": [
+    "High risk in irrigated areas."
+  ],
+  "sources": [
+    "FAO and regional reports"
+  ]
+}

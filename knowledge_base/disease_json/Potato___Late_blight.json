@@ -1,0 +1,26 @@
+{
+  "disease": "Late Blight",
+  "arabic_name": "اللفحة المتأخرة",
+  "symptoms": [
+    "Water-soaked dark lesions on leaves, white sporulation",
+    "Rapid necrosis, tuber rot"
+  ],
+  "treatments": [
+    "Protectant + systemic fungicides"
+  ],
+  "local_pesticides": [
+    "Mancozeb, metalaxyl-based (per MoA approval and rotation)"
+  ],
+  "prevention": [
+    "Certified seed, destroy debris, weather-based forecasting"
+  ],
+  "palestine_risk_season": [
+    "Cool, humid periods (Jordan Valley, winter/spring)"
+  ],
+  "local_advice": [
+    "Major threat; IPM and timely action critical."
+  ],
+  "sources": [
+    "An-Najah University and regional studies"
+  ]
+}

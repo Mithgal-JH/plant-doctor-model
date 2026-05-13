@@ -1,0 +1,26 @@
+{
+  "disease": "Tomato Yellow Leaf Curl Virus",
+  "arabic_name": "فيروس تجعد أوراق الطماطم الأصفر",
+  "symptoms": [
+    "Upward leaf curling, yellowing, stunting",
+    "Reduced or no fruit set"
+  ],
+  "treatments": [
+    "Vector (whitefly) control; rogue infected plants"
+  ],
+  "local_pesticides": [
+    "Whitefly insecticides (e.g., imidacloprid where approved; rotate)"
+  ],
+  "prevention": [
+    "Resistant varieties, reflective mulches, barriers"
+  ],
+  "palestine_risk_season": [
+    "Spring to summer (northern West Bank peak)"
+  ],
+  "local_advice": [
+    "Very high prevalence; vector management is priority."
+  ],
+  "sources": [
+    "An-Najah University epidemiology studies"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "disease": "Grape Black Rot",
+  "arabic_name": "التعفن الأسود للعنب",
+  "symptoms": [
+    "Small circular brown spots on leaves",
+    "Black, shriveled berries with pycnidia"
+  ],
+  "treatments": [
+    "Fungicide sprays starting at bloom"
+  ],
+  "local_pesticides": [
+    "Registered fungicides (e.g., mancozeb-based where approved)"
+  ],
+  "prevention": [
+    "Sanitation, canopy management for airflow, resistant varieties"
+  ],
+  "palestine_risk_season": [
+    "Spring to summer (humid periods in Hebron/Bethlehem)"
+  ],
+  "local_advice": [
+    "Critical in West Bank vineyards; early protection essential."
+  ],
+  "sources": [
+    "Regional viticulture studies (Jordan, Lebanon)"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "disease": "Apple Black Rot",
+  "arabic_name": "التعفن الأسود للتفاح",
+  "symptoms": [
+    "Brown to black lesions on leaves/fruit",
+    "Cankers on branches, mummified fruit"
+  ],
+  "treatments": [
+    "Fungicide applications during growing season"
+  ],
+  "local_pesticides": [
+    "Registered fungicides per Palestinian MoA"
+  ],
+  "prevention": [
+    "Pruning infected wood, sanitation, resistant varieties"
+  ],
+  "palestine_risk_season": [
+    "Summer"
+  ],
+  "local_advice": [
+    "Manage via orchard hygiene in West Bank conditions."
+  ],
+  "sources": [
+    "Standard regional fruit disease guides adapted for Palestine"
+  ]
+}

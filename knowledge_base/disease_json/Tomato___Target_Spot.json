@@ -1,0 +1,25 @@
+{
+  "disease": "Target Spot",
+  "arabic_name": "البقع المستهدفة",
+  "symptoms": [
+    "Target-like spots on leaves and fruit"
+  ],
+  "treatments": [
+    "Fungicides"
+  ],
+  "local_pesticides": [
+    "Registered products"
+  ],
+  "prevention": [
+    "Crop debris removal"
+  ],
+  "palestine_risk_season": [
+    "Growing season"
+  ],
+  "local_advice": [
+    "Differentiate from early blight."
+  ],
+  "sources": [
+    "Tomato disease guides"
+  ]
+}

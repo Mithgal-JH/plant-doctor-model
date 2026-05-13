@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Doctor</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #064e3b;
+    --green-mid: #059669;
+    --green-light: #34d399;
+    --green-pale: #d1fae5;
+    --soil: #92400e;
+    --soil-light: #fef3c7;
+    --danger: #ef4444;
+    --warning: #f97316;
+    --safe: #22c55e;
+    --bg: #f0fdf4;
+    --card: #ffffff;
+    --text: #064e3b;
+    --text-light: #6b7280;
+    --border: #a7f3d0;
+    --shadow: 0 4px 24px rgba(6,78,59,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    direction: rtl;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--green-dark) 0%, #065f46 100%);
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .logo-icon { font-size: 2rem; }
+  .badge {
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 18px 24px;
+    background: linear-gradient(135deg, var(--green-pale), #fff);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--green-dark);
+  }
+  .card-body { padding: 24px; }
+
+  /* ── UPLOAD ZONE ── */
+  .upload-zone {
+    border: 2.5px dashed var(--green-light);
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--green-pale);
+    position: relative;
+  }
+  .upload-zone:hover, .upload-zone.drag-over {
+    border-color: var(--green-mid);
+    background: #bbf7d0;
+    transform: scale(1.01);
+  }
+  .upload-zone input { display: none; }
+  .upload-icon { font-size: 3.5rem; margin-bottom: 12px; }
+  .upload-title { font-size: 1.1rem; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .upload-sub { font-size: 0.85rem; color: var(--text-light); }
+
+  /* ── PREVIEW ── */
+  #preview-section { display: none; margin-top: 20px; }
+  #preview-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+    color: white;
+    box-shadow: 0 4px 12px rgba(5,150,105,0.3);
+    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 1.05rem;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(5,150,105,0.4); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .btn-secondary {
+    background: var(--green-pale);
+    color: var(--green-dark);
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+
+  /* ── RESULT ── */
+  #result-section { display: none; margin-top: 24px; }
+  .result-card {
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--severity-color, var(--green-mid));
+  }
+  .result-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .result-emoji { font-size: 2.5rem; }
+  .result-name { font-size: 1.2rem; font-weight: 700; }
+  .result-en { font-size: 0.85rem; color: var(--text-light); }
+  .severity-badge {
+    padding: 4px 14px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    margin-right: auto;
+  }
+  .confidence-bar {
+    background: #e5e7eb;
+    border-radius: 99px;
+    height: 8px;
+    margin: 8px 0;
+    overflow: hidden;
+  }
+  .confidence-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+    transition: width 1s ease;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .info-box {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid var(--border);
+  }
+  .info-box-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .info-box-content { font-size: 0.88rem; line-height: 1.5; }
+  .info-box.full { grid-column: 1 / -1; }
+
+  /* ── LOADING ── */
+  .spinner {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── CHATBOT ── */
+  .chatbot-section {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+  }
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chat-messages::-webkit-scrollbar { width: 6px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+  .msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: msgIn 0.3s ease;
+  }
+  @keyframes msgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .msg-bot {
+    background: var(--green-pale);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-bottom-right-radius: 4px;
+    align-self: flex-start;
+  }
+  .msg-user {
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+    color: white;
+    border-bottom-left-radius: 4px;
+    align-self: flex-end;
+  }
+  .msg-bot-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green-mid);
+    margin-bottom: 3px;
+  }
+  .typing-dots span {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--green-mid);
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+
+  .chat-input-area {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    background: white;
+  }
+  .chat-input {
+    flex: 1;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    resize: none;
+    direction: rtl;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color 0.2s;
+    max-height: 100px;
+  }
+  .chat-input:focus { border-color: var(--green-mid); }
+  .send-btn {
+    background: var(--green-mid);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .send-btn:hover { background: var(--green-dark); transform: scale(1.05); }
+
+  /* ── QUICK QUESTIONS ── */
+  .quick-questions {
+    padding: 8px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .quick-q {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--green-dark);
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .quick-q:hover { background: var(--green-pale); border-color: var(--green-mid); }
+
+  /* ── STATS ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--green-mid); }
+  .stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; }
+    .chatbot-section { height: 450px; }
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon">🌿</span>
+      <span>طبيب النبات</span>
+      <span class="badge">AI</span>
+    </div>
+    <div style="font-size:0.8rem;opacity:0.7">Arab AI Olympiad 2026 | STEAM Center</div>
+  </div>
+</header>
+
+<div class="main">
+  <!-- LEFT COLUMN -->
+  <div>
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">38+</div>
+        <div class="stat-label">مرض مكتشف</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">95%</div>
+        <div class="stat-label">دقة التشخيص</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">54k</div>
+        <div class="stat-label">صورة تدريب</div>
+      </div>
+    </div>
+
+    <!-- Upload Card -->
+    <div class="card">
+      <div class="card-header">
+        <span>📸</span> تحليل صورة النبات
+      </div>
+      <div class="card-body">
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
+          <input type="file" id="file-input" accept="image/*" onchange="handleFile(this)">
+          <div class="upload-icon">🍃</div>
+          <div class="upload-title">اسحب صورة الورقة هنا أو انقر للاختيار</div>
+          <div class="upload-sub">JPG, PNG - صور واضحة للأوراق المصابة</div>
+        </div>
+
+        <div id="preview-section">
+          <img id="preview-img" alt="صورة النبات">
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn btn-secondary" onclick="resetUpload()">🔄 صورة جديدة</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="analyze-btn" onclick="analyzeImage()" disabled>
+          <span id="btn-text">🔬 تحليل النبات</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Result Card -->
+    <div id="result-section">
+      <div class="card" style="margin-top:0">
+        <div class="card-header">
+          <span>📊</span> نتيجة التشخيص
+          <span id="demo-badge" style="display:none;background:#fef3c7;color:#92400e;font-size:0.7rem;padding:2px 8px;border-radius:99px;margin-right:auto">وضع تجريبي</span>
+        </div>
+        <div class="card-body" id="result-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN - CHATBOT -->
+  <div>
+    <div class="card" style="height:fit-content">
+      <div class="card-header">
+        <span>🤖</span> المساعد الزراعي الذكي
+      </div>
+      <div class="chatbot-section">
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg msg-bot">
+            <div class="msg-bot-name">🌿 طبيب النبات</div>
+            مرحباً! أنا مساعدك الزراعي الذكي. يمكنني مساعدتك في:
+            <br>• تشخيص أمراض النباتات
+            <br>• شرح طرق العلاج والوقاية
+            <br>• تقديم نصائح زراعية
+            <br><br>حمّل صورة النبات أولاً أو اسألني أي سؤال! 🌱
+          </div>
+        </div>
+
+        <div class="quick-questions">
+          <button class="quick-q" onclick="sendQuick('ما هي أعراض اللفحة المبكرة؟')">🍅 اللفحة المبكرة</button>
+          <button class="quick-q" onclick="sendQuick('كيف أمنع انتشار الأمراض الفطرية؟')">🛡️ الوقاية</button>
+          <button class="quick-q" onclick="sendQuick('متى أحتاج للرش بالمبيدات؟')">💊 المبيدات</button>
+          <button class="quick-q" onclick="sendQuick('ما هو أفضل وقت للري؟')">💧 الري</button>
+        </div>
+
+        <div class="chat-input-area">
+          <button class="send-btn" onclick="sendMessage()">↑</button>
+          <textarea
+            class="chat-input"
+            id="chat-input"
+            placeholder="اكتب سؤالك هنا..."
+            rows="1"
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"
+            oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentImageData = null;
+let chatHistory = [];
+let currentDisease = '';
+
+// ── UPLOAD ──
+const uploadZone = document.getElementById('upload-zone');
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) processFile(file);
+});
+
+function handleFile(input) {
+  if (input.files[0]) processFile(input.files[0]);
+}
+
+function processFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    currentImageData = e.target.result;
+    document.getElementById('preview-img').src = currentImageData;
+    document.getElementById('preview-section').style.display = 'block';
+    document.getElementById('upload-zone').style.display = 'none';
+    document.getElementById('analyze-btn').disabled = false;
+    document.getElementById('result-section').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function resetUpload() {
+  currentImageData = null;
+  currentDisease = '';
+  document.getElementById('preview-section').style.display = 'none';
+  document.getElementById('upload-zone').style.display = 'block';
+  document.getElementById('analyze-btn').disabled = true;
+  document.getElementById('result-section').style.display = 'none';
+  document.getElementById('file-input').value = '';
+}
+
+// ── ANALYZE ──
+async function analyzeImage() {
+  if (!currentImageData) return;
+
+  const btn = document.getElementById('analyze-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> جاري التحليل...';
+
+  try {
+    const response = await fetch('/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: currentImageData })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      showResult(result);
+      // Notify chatbot about diagnosis
+      currentDisease = result;
+      addBotMessage(`تم التشخيص! النبات يعاني من: **${result.name_ar}**\nنسبة الثقة: ${result.confidence}%\n\nهل تريد معرفة المزيد عن العلاج أو الوقاية؟`);
+    } else {
+      alert('حدث خطأ في التحليل: ' + result.error);
+    }
+  } catch (err) {
+    alert('تعذر الاتصال بالخادم. تأكد من تشغيل app.py');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '🔬 تحليل مرة أخرى';
+}
+
+function showResult(r) {
+  const section = document.getElementById('result-section');
+  const content = document.getElementById('result-content');
+  const demoBadge = document.getElementById('demo-badge');
+
+  if (r.demo_mode) demoBadge.style.display = 'inline';
+  else demoBadge.style.display = 'none';
+
+  const severityColors = { none: '#22c55e', low: '#eab308', medium: '#f97316', high: '#ef4444' };
+  const color = severityColors[r.severity] || '#f97316';
+
+  content.innerHTML = `
+    <div class="result-card" style="border-color:${color}20;background:${color}08;--severity-color:${color}">
+      <div class="result-header">
+        <span class="result-emoji">${r.emoji || '🌿'}</span>
+        <div>
+          <div class="result-name">${r.name_ar}</div>
+          <div class="result-en">${r.name_en}</div>
+        </div>
+        <span class="severity-badge" style="background:${color}">${r.severity_label}</span>
+      </div>
+
+      <div style="margin-bottom:4px;font-size:0.82rem;color:var(--text-light)">نسبة الثقة: ${r.confidence}%</div>
+      <div class="confidence-bar">
+        <div class="confidence-fill" id="conf-fill" style="width:0%"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="info-box-title">🦠 السبب</div>
+          <div class="info-box-content">${r.cause}</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">👁️ الأعراض</div>
+          <div class="info-box-content">${r.symptoms_ar}</div>
+        </div>
+        <div class="info-box full">
+          <div class="info-box-title">💊 العلاج</div>
+          <div class="info-box-content">${r.treatment_ar}</div>
+        </div>
+        <div class="info-box full">
+          <div class="info-box-title">🛡️ الوقاية</div>
+          <div class="info-box-content">${r.prevention_ar}</div>
+        </div>
+      </div>
+    </div>`;
+
+  section.style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('conf-fill').style.width = r.confidence + '%';
+  }, 100);
+  section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ── CHATBOT ──
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  addUserMessage(text);
+  input.value = '';
+  input.style.height = 'auto';
+
+  chatHistory.push({ role: 'user', content: text });
+
+  // Show typing indicator
+  const typingId = addTypingIndicator();
+
+  try {
+    const response = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+      messages: chatHistory,
+      disease_context: currentDisease
+      })
+    });
+
+    const result = await response.json();
+    removeTypingIndicator(typingId);
+
+    if (result.success) {
+      addBotMessage(result.reply);
+      chatHistory.push({ role: 'assistant', content: result.reply });
+    }
+  } catch (err) {
+    removeTypingIndicator(typingId);
+    addBotMessage('عذراً، حدث خطأ في الاتصال. تأكد من تشغيل الخادم.');
+  }
+}
+
+function sendQuick(text) {
+  document.getElementById('chat-input').value = text;
+  sendMessage();
+}
+
+function addUserMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'msg msg-user';
+  div.textContent = text;
+  appendMsg(div);
+}
+
+function addBotMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'msg msg-bot';
+  div.innerHTML = `<div class="msg-bot-name">🌿 طبيب النبات</div>${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}`;
+  appendMsg(div);
+}
+
+function addTypingIndicator() {
+  const id = 'typing-' + Date.now();
+  const div = document.createElement('div');
+  div.className = 'msg msg-bot';
+  div.id = id;
+  div.innerHTML = `<div class="msg-bot-name">🌿 طبيب النبات</div><div class="typing-dots"><span></span><span></span><span></span></div>`;
+  appendMsg(div);
+  return id;
+}
+
+function removeTypingIndicator(id) {
+  const el = document.getElementById(id);
+  if (el) el.remove();
+}
+
+function appendMsg(el) {
+  const container = document.getElementById('chat-messages');
+  container.appendChild(el);
+  container.scrollTop = container.scrollHeight;
+}
+</script>
+</body>
+</html>
