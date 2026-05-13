@@ -9,6 +9,7 @@ from flask import Flask, request, jsonify
 import json
 import os
 import sys
+import traceback
 import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -19,7 +20,15 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
+if not OPENROUTER_API_KEY:
+    raise ValueError("OPENROUTER_API_KEY not found in .env")
+
+
 app = Flask(__name__, static_folder="static")
+
+app.config["JSON_AS_ASCII"] = False
 
 # Initialize predictor
 predictor = PlantDiseasePredictor()
@@ -112,63 +121,78 @@ def chat():
         # Load local KB
         local_knowledge = KNOWLEDGE_BASE.get(class_name, {})
 
-        # Build AI prompt
+        # Build AI system prompt
         prompt = f"""
-أنت مساعد زراعي ذكي اسمه "طبيب النبات".
+                    أنت مساعد زراعي ذكي اسمه "طبيب النبات".
 
-مهمتك:
-- مساعدة المزارعين
-- شرح الأمراض النباتية
-- إعطاء نصائح علاج ووقاية
-- الاعتماد على المعلومات المحلية
-- الإجابة بالعربية فقط
+                    مهمتك:
+                    - مساعدة المزارعين
+                    - شرح الأمراض النباتية
+                    - إعطاء نصائح علاج ووقاية
+                    - الاعتماد على المعلومات المحلية
+                    - الإجابة بالعربية فقط
 
-معلومات التشخيص الحالية:
-{json.dumps(disease_context, ensure_ascii=False, indent=2)}
+                    معلومات التشخيص الحالية:
+                    {json.dumps(disease_context, ensure_ascii=False, indent=2)}
 
-المعلومات الزراعية المحلية:
-{json.dumps(local_knowledge, ensure_ascii=False, indent=2)}
+                    المعلومات الزراعية المحلية:
+                    {json.dumps(local_knowledge, ensure_ascii=False, indent=2)}
 
-سؤال المستخدم:
-{user_message}
+                    قواعد:
+                    - أجب بالعربية فقط
+                    - لا تتجاوز 120 كلمة
+                    - كن عملياً ومختصراً
+                    - لا تخترع أسماء مبيدات غير موجودة
+                    - اعتمد على المعلومات المحلية المعطاة
+                    - إذا لم توجد معلومة، قل ذلك بوضوح
+                    - إذا كان النبات سليماً، طمّن المستخدم
+                    """
 
-قواعد:
-- أجب بالعربية فقط
-- لا تتجاوز 120 كلمة
-- كن عملياً ومختصراً
-- لا تخترع أسماء مبيدات غير موجودة
-- اعتمد على المعلومات المحلية المعطاة
-- إذا لم توجد معلومة، قل ذلك بوضوح
-- إذا كان النبات سليماً، طمّن المستخدم
-"""
+        # Build real multi-turn conversation
+        conversation = [
+            {
+                "role": "system",
+                "content": prompt
+            }
+        ]
 
+        # Keep last 6 messages
+        for msg in messages[-6:]:
+
+            role = msg.get("role", "user")
+
+            if role not in ["user", "assistant"]:
+                role = "user"
+
+            conversation.append({
+                "role": role,
+                "content": msg.get("content", "")
+            })
+
+        # Send request to OpenRouter
         response = requests.post(
 
             url="https://openrouter.ai/api/v1/chat/completions",
 
             headers={
-                "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
                 "Content-Type": "application/json",
             },
 
             json={
-
                 "model": "deepseek/deepseek-chat",
+                "messages": conversation
+            },
 
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ]
-
-            }
-
+            timeout=30
         )
+
+        response.raise_for_status()
 
         result = response.json()
 
-        print(result)
+        if app.debug:
+            print("OpenRouter response received")
 
         # Handle API errors safely
         if "choices" not in result:
@@ -187,12 +211,11 @@ def chat():
 
     except Exception as e:
 
-        import traceback
         traceback.print_exc()
 
         return jsonify({
-            "success": False,
-            "error": str(e)
+            "success": True,
+            "reply": "تعذر الاتصال بالمساعد الذكي حالياً. حاول مرة أخرى بعد قليل."
         })
 
 

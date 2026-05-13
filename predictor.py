@@ -11,6 +11,7 @@ import os
 from PIL import Image
 import io
 import base64
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 # ============================================================
 # DISEASE INFORMATION DATABASE
@@ -285,7 +286,7 @@ class PlantDiseasePredictor:
             else:
                 print("⚠️  Model not found. Run train_model.py first.")
         except ImportError:
-            print("⚠️  TensorFlow not installed. Using demo mode.")
+            print("TensorFlow not installed.")
 
     def preprocess_image(self, image_data):
         """Convert base64 image to numpy array for model"""
@@ -296,27 +297,13 @@ class PlantDiseasePredictor:
         img_bytes = base64.b64decode(image_data)
         img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
         img = img.resize((224, 224))
-        img_array = np.array(img) / 255.0
+        img_array = np.array(img)
+        img_array = preprocess_input(img_array)
         return np.expand_dims(img_array, axis=0)
+
 
     def get_disease_info(self, class_name):
 
-      # 1. Try online API first
-      try:
-          import requests
-
-          response = requests.get(
-              f"http://localhost:8000/disease/{class_name}",
-              timeout=2
-          )
-
-          if response.status_code == 200:
-              return response.json()
-
-      except:
-          print("⚠️ Offline mode activated")
-
-      # 2. Fallback to local database
       return DISEASE_INFO.get(class_name, {
           "name_ar": "غير معروف",
           "name_en": class_name,
@@ -327,20 +314,28 @@ class PlantDiseasePredictor:
           "prevention_ar": "حافظ على العناية الجيدة بالنبات.",
           "emoji": "❓"
       })
-    
+
     def predict(self, image_data):
         """
         Predict plant disease from base64 image.
         Returns disease info dict.
         """
         if self.model is None:
-            # DEMO MODE: return sample result for testing
-            return self._demo_predict()
+          return {
+              "success": False,
+              "error": "Model not loaded"
+          }
 
         try:
             img = self.preprocess_image(image_data)
             predictions = self.model.predict(img, verbose=0)
             confidence = float(np.max(predictions))
+            if confidence < 0.60:
+              return {
+                  "success": False,
+                  "error": "Unable to confidently identify the disease",
+                  "confidence": round(confidence * 100, 1)
+              }
             class_idx = str(np.argmax(predictions))
             class_name = self.labels.get(class_idx, "Unknown")
 
@@ -362,34 +357,13 @@ class PlantDiseasePredictor:
         except Exception as e:
             return {"success": False, "error": str(e)}
 
-    def _demo_predict(self):
-        """Demo prediction for testing without real model"""
-        import random
-
-        diseases = list(DISEASE_INFO.keys())
-        chosen = random.choice(diseases)
-        info = DISEASE_INFO[chosen]
-        return {
-            "success": True,
-            "class_name": chosen,
-            "confidence": round(random.uniform(75, 98), 1),
-            **info,
-            "severity_color": SEVERITY_COLORS.get(
-                info.get("severity", "medium"), "#f97316"
-            ),
-            "severity_label": SEVERITY_LABELS.get(
-                info.get("severity", "medium"), "متوسط"
-            ),
-            "demo_mode": True,
-        }
-
 
 # Standalone test
 if __name__ == "__main__":
+
     predictor = PlantDiseasePredictor()
-    result = predictor._demo_predict()
-    print("\n🌿 Test Prediction:")
-    print(f"Disease: {result['name_ar']}")
-    print(f"Confidence: {result['confidence']}%")
-    print(f"Severity: {result['severity_label']}")
-    print(f"Treatment: {result['treatment_ar']}")
+
+    if predictor.model is not None:
+        print("Model loaded successfully")
+    else:
+        print("Model not loaded")
