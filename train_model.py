@@ -46,9 +46,9 @@ IMG_SIZE = 224
 
 BATCH_SIZE = 32
 
-INITIAL_EPOCHS = 10
+INITIAL_EPOCHS = 15
 
-FINE_TUNE_EPOCHS = 5
+FINE_TUNE_EPOCHS = 8
 
 DATA_DIR = "data/custom_dataset"
 
@@ -75,19 +75,8 @@ print("Loading dataset...")
 # Balanced augmentation
 train_datagen = ImageDataGenerator(
 
-    preprocessing_function=preprocess_input,
-
-    rotation_range=10,
-
-    width_shift_range=0.05,
-
-    height_shift_range=0.05,
-
-    zoom_range=0.05,
-
-    horizontal_flip=True,
-
-    validation_split=0.2
+  horizontal_flip=True,
+  rotation_range=5,
 )
 
 val_datagen = ImageDataGenerator(
@@ -205,7 +194,7 @@ model = models.Sequential([
 model.compile(
 
     optimizer=tf.keras.optimizers.Adam(
-        learning_rate=0.0005
+        learning_rate=3e-4
     ),
 
     loss="categorical_crossentropy",
@@ -281,8 +270,11 @@ history = model.fit(
 print("\nStarting fine-tuning...")
 
 base_model.trainable = True
+for layer in base_model.layers:
+    if isinstance(layer, tf.keras.layers.BatchNormalization):
+        layer.trainable = False
 
-for layer in base_model.layers[:-30]:
+for layer in base_model.layers[:-15]:
 
     layer.trainable = False
 
