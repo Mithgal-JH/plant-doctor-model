@@ -90,7 +90,65 @@ def analyze():
 
         result = predictor.predict(image_data)
 
-        return jsonify(result)
+        if not result.get("success"):
+            return jsonify(result)
+
+        class_name = result.get("class_name")
+
+        raw = KNOWLEDGE_BASE.get(class_name, {})
+
+        disease_info = {
+            "name_ar": raw.get("arabic_name", "غير معروف"),
+            "name_en": raw.get("disease", class_name),
+
+            "severity": raw.get("severity", "medium"),
+            "cause": raw.get("cause", "غير معروف"),
+
+            "symptoms_ar": "، ".join(raw.get("symptoms", [])),
+
+            "treatment_ar": "، ".join(raw.get("treatments", [])),
+
+            "prevention_ar": "، ".join(raw.get("prevention", [])),
+
+            "local_pesticides": "، ".join(raw.get("local_pesticides", [])),
+
+            "local_advice": "، ".join(raw.get("local_advice", [])),
+
+            "risk_season": "، ".join(raw.get("palestine_risk_season", [])),
+
+            "sources": "، ".join(raw.get("sources", [])),
+
+            "emoji": raw.get("emoji", "🌿")
+        }
+
+        SEVERITY_COLORS = {
+            "none": "#22c55e",
+            "low": "#eab308",
+            "medium": "#f97316",
+            "high": "#ef4444",
+        }
+
+        SEVERITY_LABELS = {
+            "none": "سليم",
+            "low": "خفيف",
+            "medium": "متوسط",
+            "high": "خطير"
+        }
+
+        return jsonify({
+            **result,
+            **disease_info,
+
+            "severity_color": SEVERITY_COLORS.get(
+                disease_info.get("severity", "medium"),
+                "#f97316"
+            ),
+
+            "severity_label": SEVERITY_LABELS.get(
+                disease_info.get("severity", "medium"),
+                "متوسط"
+            )
+        })
 
     except Exception as e:
 
