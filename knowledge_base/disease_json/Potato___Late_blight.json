@@ -2,25 +2,25 @@
   "disease": "Late Blight",
   "arabic_name": "اللفحة المتأخرة",
   "symptoms": [
-    "Water-soaked dark lesions on leaves, white sporulation",
-    "Rapid necrosis, tuber rot"
+    "بقع داكنة مشبعة بالماء على الأوراق مع ظهور إفرازات بيضاء (تبوغ)",
+    "نخر سريع في الأنسجة وتعفن الدرنات"
   ],
   "treatments": [
-    "Protectant + systemic fungicides"
+    "مبيدات فطرية وقائية وجهازية معاً"
   ],
   "local_pesticides": [
-    "Mancozeb, metalaxyl-based (per MoA approval and rotation)"
+    "المانكوزيب، والمبيدات القائمة على الميتالاكسيل (وفق اعتماد وزارة الزراعة والتناوب الضروري)"
   ],
   "prevention": [
-    "Certified seed, destroy debris, weather-based forecasting"
+    "استخدام تقاوي معتمدة، وإتلاف بقايا المحصول، والاعتماد على التنبؤ المناخي لتحديد مواعيد الرش"
   ],
   "palestine_risk_season": [
-    "Cool, humid periods (Jordan Valley, winter/spring)"
+    "الفترات الباردة والرطبة (غور الأردن، الشتاء والربيع)"
   ],
   "local_advice": [
-    "Major threat; IPM and timely action critical."
+    "خطر بالغ الأثر؛ تطبيق الإدارة المتكاملة والتدخل في الوقت المناسب أمر لا غنى عنه."
   ],
   "sources": [
-    "An-Najah University and regional studies"
+    "جامعة النجاح الوطنية ودراسات إقليمية"
   ]
 }

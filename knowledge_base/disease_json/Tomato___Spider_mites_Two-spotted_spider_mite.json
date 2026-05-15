@@ -2,25 +2,25 @@
   "disease": "Two-Spotted Spider Mite",
   "arabic_name": "العنكبوت الأحمر ذو البقعتين",
   "symptoms": [
-    "Stippling on leaves, fine webbing",
-    "Leaf yellowing and drop"
+    "تنقيط وتبقيع على الأوراق مع ظهور نسيج عنكبوتي رفيع",
+    "اصفرار الأوراق وتساقطها"
   ],
   "treatments": [
-    "Acaricides or miticides when thresholds exceeded"
+    "رش مبيدات أكاروسية (مضادة للأكاروس) عند تجاوز العتبة الاقتصادية للإصابة"
   ],
   "local_pesticides": [
-    "Approved acaricides (rotate to manage resistance)"
+    "مبيدات أكاروسية مُعتمدة (مع التناوب لتفادي مقاومة الآفة للمبيد)"
   ],
   "prevention": [
-    "Dust reduction, encourage natural enemies, overhead irrigation where feasible"
+    "تقليل الغبار حول النباتات، وتشجيع الأعداء الطبيعيين للآفة، والري بالرش حيث أمكن"
   ],
   "palestine_risk_season": [
-    "Hot dry summer"
+    "فصل الصيف الحار الجاف"
   ],
   "local_advice": [
-    "Severe in hot/dry West Bank conditions; biological control preferred."
+    "يشتد الإصابة في ظروف الضفة الغربية الحارة والجافة؛ المكافحة البيولوجية هي الخيار الأفضل."
   ],
   "sources": [
-    "Regional mite management"
+    "إدارة الأكاروسات في المنطقة"
   ]
 }

@@ -616,8 +616,21 @@ function showResult(r) {
           <div class="info-box-content">${r.treatment_ar}</div>
         </div>
         <div class="info-box full">
+          <div class="info-box-title">🧪 المبيدات المحلية</div>
+          <div class="info-box-content">${r.local_pesticides || 'لا توجد معلومات'}</div>
+        </div>
+        <div class="info-box full">
           <div class="info-box-title">🛡️ الوقاية</div>
           <div class="info-box-content">${r.prevention_ar}</div>
+        </div>
+        <div class="info-box full">
+          <div class="info-box-title">🌦️ موسم الخطورة</div>
+          <div class="info-box-content">${r.risk_season || 'غير محدد'}</div>
+        </div>
+
+        <div class="info-box full">
+          <div class="info-box-title">📍 نصائح محلية</div>
+          <div class="info-box-content">${r.local_advice || 'لا توجد نصائح إضافية'}</div>
         </div>
       </div>
     </div>`;

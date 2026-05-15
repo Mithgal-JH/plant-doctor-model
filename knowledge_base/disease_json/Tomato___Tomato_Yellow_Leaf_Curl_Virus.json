@@ -2,25 +2,25 @@
   "disease": "Tomato Yellow Leaf Curl Virus",
   "arabic_name": "فيروس تجعد أوراق الطماطم الأصفر",
   "symptoms": [
-    "Upward leaf curling, yellowing, stunting",
-    "Reduced or no fruit set"
+    "تجعد الأوراق للأعلى واصفرارها وتقزم النبات",
+    "ضعف شديد في العقد أو انعدامه كلياً"
   ],
   "treatments": [
-    "Vector (whitefly) control; rogue infected plants"
+    "مكافحة الناقل (الذبابة البيضاء)؛ واقتلاع النباتات المصابة وإتلافها"
   ],
   "local_pesticides": [
-    "Whitefly insecticides (e.g., imidacloprid where approved; rotate)"
+    "مبيدات حشرية مخصصة للذبابة البيضاء (مثل الإيميداكلوبريد حيث مُعتمد، مع التناوب الضروري)"
   ],
   "prevention": [
-    "Resistant varieties, reflective mulches, barriers"
+    "زراعة أصناف مقاومة، واستخدام أغطية عاكسة للضوء، وشبك الحماية"
   ],
   "palestine_risk_season": [
-    "Spring to summer (northern West Bank peak)"
+    "من الربيع إلى الصيف (ذروة الإصابة في شمال الضفة الغربية)"
   ],
   "local_advice": [
-    "Very high prevalence; vector management is priority."
+    "انتشار واسع جداً في المنطقة؛ مكافحة الذبابة البيضاء الناقلة هي الأولوية القصوى."
   ],
   "sources": [
-    "An-Najah University epidemiology studies"
+    "دراسات وبائيات جامعة النجاح الوطنية"
   ]
 }

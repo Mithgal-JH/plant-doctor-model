@@ -2,25 +2,25 @@
   "disease": "Cedar Apple Rust",
   "arabic_name": "صدأ التفاح والأرز",
   "symptoms": [
-    "Yellow-orange spots on upper leaf surface",
-    "Rust-colored spots on fruit"
+    "بقع صفراء برتقالية على السطح العلوي للأوراق",
+    "بقع بلون الصدأ على الثمار"
   ],
   "treatments": [
-    "Fungicides during infection periods"
+    "رش مبيدات فطرية خلال فترات الإصابة"
   ],
   "local_pesticides": [
-    "Approved protectant fungicides"
+    "مبيدات فطرية وقائية مُعتمدة"
   ],
   "prevention": [
-    "Remove nearby alternate hosts (junipers/cedars), resistant varieties"
+    "إزالة العوائل البديلة القريبة كأشجار العرعر والأرز، وزراعة أصناف مقاومة"
   ],
   "palestine_risk_season": [
-    "Spring-summer"
+    "الربيع والصيف"
   ],
   "local_advice": [
-    "Relevant in mixed landscapes of the West Bank."
+    "يظهر هذا المرض في المناطق ذات الغطاء النباتي المتنوع في الضفة الغربية."
   ],
   "sources": [
-    "Mediterranean fruit pathology references"
+    "مراجع أمراض الفاكهة في حوض البحر الأبيض المتوسط"
   ]
 }

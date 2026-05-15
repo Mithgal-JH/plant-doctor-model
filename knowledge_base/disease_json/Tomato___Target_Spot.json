@@ -2,24 +2,24 @@
   "disease": "Target Spot",
   "arabic_name": "البقع المستهدفة",
   "symptoms": [
-    "Target-like spots on leaves and fruit"
+    "بقع تشبه الهدف على الأوراق والثمار"
   ],
   "treatments": [
-    "Fungicides"
+    "رش مبيدات فطرية مناسبة"
   ],
   "local_pesticides": [
-    "Registered products"
+    "منتجات مسجلة ومعتمدة محلياً"
   ],
   "prevention": [
-    "Crop debris removal"
+    "إزالة بقايا المحصول من الحقل"
   ],
   "palestine_risk_season": [
-    "Growing season"
+    "موسم النمو"
   ],
   "local_advice": [
-    "Differentiate from early blight."
+    "تمييزه عن اللفحة المبكرة أمر ضروري لاختيار العلاج الصحيح."
   ],
   "sources": [
-    "Tomato disease guides"
+    "أدلة أمراض الطماطم"
   ]
 }

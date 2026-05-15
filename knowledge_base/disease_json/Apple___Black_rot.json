@@ -2,25 +2,25 @@
   "disease": "Apple Black Rot",
   "arabic_name": "التعفن الأسود للتفاح",
   "symptoms": [
-    "Brown to black lesions on leaves/fruit",
-    "Cankers on branches, mummified fruit"
+    "بقع بنية إلى سوداء على الأوراق والثمار",
+    "تقرحات على الأفرع وثمار متحجرة ومتجففة"
   ],
   "treatments": [
-    "Fungicide applications during growing season"
+    "رش مبيدات فطرية خلال موسم النمو"
   ],
   "local_pesticides": [
-    "Registered fungicides per Palestinian MoA"
+    "مبيدات فطرية مسجلة لدى وزارة الزراعة الفلسطينية"
   ],
   "prevention": [
-    "Pruning infected wood, sanitation, resistant varieties"
+    "تقليم الأخشاب المصابة، والتنظيف الحقلي، وزراعة أصناف مقاومة"
   ],
   "palestine_risk_season": [
-    "Summer"
+    "الصيف"
   ],
   "local_advice": [
-    "Manage via orchard hygiene in West Bank conditions."
+    "التحكم بالمرض عبر النظافة الحقلية في ظروف الضفة الغربية."
   ],
   "sources": [
-    "Standard regional fruit disease guides adapted for Palestine"
+    "أدلة أمراض الفاكهة الإقليمية المعدّلة لتناسب الواقع الفلسطيني"
   ]
 }

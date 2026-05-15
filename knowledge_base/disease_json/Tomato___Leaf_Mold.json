@@ -2,24 +2,24 @@
   "disease": "Leaf Mold",
   "arabic_name": "عفن الأوراق",
   "symptoms": [
-    "Yellow spots upper leaf, olive-green mold underside"
+    "بقع صفراء على السطح العلوي للأوراق، مع نمو عفن زيتوني أخضر اللون على الوجه السفلي"
   ],
   "treatments": [
-    "Fungicides"
+    "رش مبيدات فطرية مناسبة"
   ],
   "local_pesticides": [
-    "Registered protectants"
+    "مبيدات فطرية وقائية مسجلة"
   ],
   "prevention": [
-    "Greenhouse ventilation, resistant varieties"
+    "تهوية البيوت المحمية، وزراعة أصناف مقاومة"
   ],
   "palestine_risk_season": [
-    "Humid protected cultivation"
+    "الزراعة المحمية في الأجواء الرطبة"
   ],
   "local_advice": [
-    "Problem in tunnels/greenhouses common in Palestine."
+    "مشكلة متكررة في الأنفاق والبيوت البلاستيكية المنتشرة في فلسطين."
   ],
   "sources": [
-    "Protected agriculture studies"
+    "دراسات الزراعة المحمية"
   ]
 }

@@ -2,25 +2,25 @@
   "disease": "Grape Black Rot",
   "arabic_name": "التعفن الأسود للعنب",
   "symptoms": [
-    "Small circular brown spots on leaves",
-    "Black, shriveled berries with pycnidia"
+    "بقع بنية دائرية صغيرة على الأوراق",
+    "حبات عنب سوداء متجعدة تحتوي على حويصلات جراثيم فطرية"
   ],
   "treatments": [
-    "Fungicide sprays starting at bloom"
+    "رش مبيدات فطرية ابتداءً من مرحلة الإزهار"
   ],
   "local_pesticides": [
-    "Registered fungicides (e.g., mancozeb-based where approved)"
+    "مبيدات فطرية مسجلة (مثل المبيدات القائمة على المانكوزيب حيث يُسمح باستخدامها)"
   ],
   "prevention": [
-    "Sanitation, canopy management for airflow, resistant varieties"
+    "التنظيف الحقلي، وإدارة الكساء الخضري لتحسين التهوية، وزراعة أصناف مقاومة"
   ],
   "palestine_risk_season": [
-    "Spring to summer (humid periods in Hebron/Bethlehem)"
+    "من الربيع إلى الصيف (الفترات الرطبة في منطقتي الخليل وبيت لحم)"
   ],
   "local_advice": [
-    "Critical in West Bank vineyards; early protection essential."
+    "خطر رئيسي في كروم العنب بالضفة الغربية؛ الحماية المبكرة ضرورة قصوى."
   ],
   "sources": [
-    "Regional viticulture studies (Jordan, Lebanon)"
+    "دراسات زراعة الكرمة الإقليمية (الأردن ولبنان)"
   ]
 }

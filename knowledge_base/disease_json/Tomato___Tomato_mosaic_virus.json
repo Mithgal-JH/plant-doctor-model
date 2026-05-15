@@ -2,23 +2,23 @@
   "disease": "Tomato Mosaic Virus",
   "arabic_name": "فيروس موزاييك الطماطم",
   "symptoms": [
-    "Mottling, mosaic patterns on leaves",
-    "Distorted fruit and leaves"
+    "تبقيع وأنماط موزاييكية على الأوراق",
+    "تشوه الثمار والأوراق"
   ],
   "treatments": [
-    "None curative; sanitation"
+    "لا يوجد علاج؛ التحكم يعتمد على التنظيف الحقلي فقط"
   ],
   "local_pesticides": [],
   "prevention": [
-    "Certified seed, tool disinfection, resistant varieties"
+    "استخدام بذور معتمدة، وتعقيم الأدوات الزراعية، وزراعة أصناف مقاومة"
   ],
   "palestine_risk_season": [
-    "Throughout season"
+    "طوال موسم الزراعة"
   ],
   "local_advice": [
-    "Mechanical transmission common in small farms."
+    "الانتقال الميكانيكي للفيروس شائع في المزارع الصغيرة؛ النظافة الحقلية أولوية."
   ],
   "sources": [
-    "Regional virus surveys"
+    "مسوحات الفيروسات الإقليمية"
   ]
 }

@@ -1,25 +1,25 @@
 {
   "disease": "Septoria Leaf Spot",
-  "arabic_name": "بقع septoria على الأوراق",
+  "arabic_name": "تبقع السبتوريا على الأوراق",
   "symptoms": [
-    "Small circular spots with dark margins on leaves"
+    "بقع دائرية صغيرة ذات حواف داكنة على الأوراق"
   ],
   "treatments": [
-    "Fungicides"
+    "رش مبيدات فطرية مناسبة"
   ],
   "local_pesticides": [
-    "Copper or mancozeb-based"
+    "مبيدات قائمة على النحاس أو المانكوزيب"
   ],
   "prevention": [
-    "Sanitation, rotation"
+    "التنظيف الحقلي وتطبيق الدورة الزراعية"
   ],
   "palestine_risk_season": [
-    "Mid-season"
+    "منتصف الموسم"
   ],
   "local_advice": [
-    "Manage with cultural practices."
+    "يمكن التحكم به باتباع الممارسات الزراعية الجيدة."
   ],
   "sources": [
-    "Standard tomato pathology"
+    "مراجع أمراض الطماطم المعيارية"
   ]
 }

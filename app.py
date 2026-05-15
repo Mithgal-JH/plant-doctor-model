@@ -14,7 +14,7 @@ import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from predictor import PlantDiseasePredictor, DISEASE_INFO
+from predictor import PlantDiseasePredictor
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -156,6 +156,7 @@ def chat():
             }
         ]
 
+
         # Keep last 6 messages
         for msg in messages[-6:]:
 
@@ -221,7 +222,7 @@ def chat():
 
 @app.route("/diseases")
 def get_diseases():
-    return jsonify(DISEASE_INFO)
+    return jsonify(KNOWLEDGE_BASE)
 
 
 # =========================

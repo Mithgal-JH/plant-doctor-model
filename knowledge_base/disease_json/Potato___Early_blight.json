@@ -2,25 +2,25 @@
   "disease": "Early Blight",
   "arabic_name": "اللفحة المبكرة",
   "symptoms": [
-    "Concentric ring lesions (target spots) on older leaves",
-    "Yellowing, defoliation"
+    "بقع دائرية متحدة المركز (كالهدف) على الأوراق القديمة",
+    "اصفرار الأوراق وتساقطها"
   ],
   "treatments": [
-    "Fungicides when thresholds reached"
+    "رش مبيدات فطرية عند الوصول إلى الحد الحرج للإصابة"
   ],
   "local_pesticides": [
-    "Mancozeb or alternaria-specific fungicides (rotate)"
+    "المانكوزيب أو مبيدات فطرية مخصصة لمكافحة الألترناريا مع التناوب بين المبيدات"
   ],
   "prevention": [
-    "Crop rotation, certified seed, balanced fertility"
+    "الدورة الزراعية، واستخدام بذور معتمدة، والتسميد المتوازن"
   ],
   "palestine_risk_season": [
-    "Mid to late season"
+    "منتصف الموسم وآخره"
   ],
   "local_advice": [
-    "Common in West Bank potato fields; manage to protect yield."
+    "شائع في حقول البطاطس بالضفة الغربية؛ المكافحة الجيدة تحمي الإنتاجية."
   ],
   "sources": [
-    "Regional potato pathology"
+    "أمراض البطاطس في المنطقة"
   ]
 }

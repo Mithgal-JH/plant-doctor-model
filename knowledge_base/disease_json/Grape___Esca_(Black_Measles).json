@@ -2,25 +2,25 @@
   "disease": "Esca (Black Measles)",
   "arabic_name": "إسكا (الحصبة السوداء)",
   "symptoms": [
-    "Tiger-stripe leaf patterns, wood necrosis",
-    "Black spots on berries in severe cases"
+    "خطوط ورقية على شكل نمر (التبقع النمري)، ونخر في الخشب",
+    "بقع سوداء على الحبات في الحالات الشديدة"
   ],
   "treatments": [
-    "No fully curative; trunk renewal in severe cases"
+    "لا يوجد علاج شافٍ كامل؛ تجديد الجذع في الحالات الحرجة"
   ],
   "local_pesticides": [
-    "Limited; focus on prevention"
+    "الخيارات محدودة؛ يُركَّز على الوقاية"
   ],
   "prevention": [
-    "Avoid wounding, sanitation, use healthy planting material"
+    "تجنب إحداث جروح في النبات، والتنظيف الحقلي، واستخدام مواد زراعية سليمة وخالية من الأمراض"
   ],
   "palestine_risk_season": [
-    "Throughout growing season in older vines"
+    "طوال موسم النمو في الكروم القديمة"
   ],
   "local_advice": [
-    "Grapevine trunk disease reported in regional vineyards; long-term management needed."
+    "مرض جذع الكرمة مُسجَّل في كروم المنطقة؛ يستلزم إدارة مستدامة على المدى الطويل."
   ],
   "sources": [
-    "Grapevine trunk disease research in Levant (Jordan, etc.)"
+    "أبحاث أمراض جذع الكرمة في بلاد الشام (الأردن وغيرها)"
   ]
 }

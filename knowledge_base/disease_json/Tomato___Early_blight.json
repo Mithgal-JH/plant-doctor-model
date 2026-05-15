@@ -2,25 +2,25 @@
   "disease": "Early Blight",
   "arabic_name": "اللفحة المبكرة",
   "symptoms": [
-    "Target-like concentric rings on older leaves",
-    "Stem and fruit lesions"
+    "بقع متحدة المركز تشبه الهدف على الأوراق القديمة",
+    "تقرحات على السيقان والثمار"
   ],
   "treatments": [
-    "Fungicide program"
+    "برنامج رش بمبيدات فطرية منتظمة"
   ],
   "local_pesticides": [
-    "Mancozeb, chlorothalonil alternatives per registration"
+    "المانكوزيب، أو بدائل الكلوروثالونيل المسجلة محلياً"
   ],
   "prevention": [
-    "Mulching, rotation, resistant/tolerant varieties"
+    "التغطية بالنشارة (الملش)، والدورة الزراعية، وزراعة أصناف متحملة أو مقاومة"
   ],
   "palestine_risk_season": [
-    "Throughout season, higher in stress conditions"
+    "طوال الموسم، ويشتد في ظروف إجهاد النبات"
   ],
   "local_advice": [
-    "Very common; lower canopy management helps."
+    "شائع جداً؛ إدارة الجزء السفلي من النبات تساعد في تقليل الإصابة."
   ],
   "sources": [
-    "Tomato disease studies in Mediterranean"
+    "دراسات أمراض الطماطم في حوض المتوسط"
   ]
 }

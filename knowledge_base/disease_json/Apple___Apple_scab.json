@@ -2,27 +2,27 @@
   "disease": "Apple Scab",
   "arabic_name": "جرب التفاح",
   "symptoms": [
-    "Olive-brown to velvety green/black lesions on leaves and fruit",
-    "Distorted leaves, premature leaf drop",
-    "Scabby, cracked fruit lesions"
+    "بقع زيتونية بنية إلى خضراء مخملية أو سوداء على الأوراق والثمار",
+    "تشوه الأوراق وتساقطها المبكر",
+    "بقع جربية متشققة على الثمار"
   ],
   "treatments": [
-    "Protectant fungicides applied on schedule during wet spring periods"
+    "رش مبيدات فطرية وقائية وفق جدول زمني منتظم خلال فترات الربيع الرطبة"
   ],
   "local_pesticides": [
-    "Sulfur-based, captan, or other MoA-approved fungicides (rotate modes of action)"
+    "مبيدات فطرية على أساس الكبريت، أو الكابتان، أو مبيدات مُعتمدة من وزارة الزراعة مع التناوب في آليات المقاومة"
   ],
   "prevention": [
-    "Resistant varieties, sanitation (remove fallen leaves), pruning for airflow",
-    "Dormant sprays"
+    "زراعة أصناف مقاومة، والتنظيف الحقلي بإزالة الأوراق المتساقطة، والتقليم لتحسين التهوية",
+    "رش المبيدات خلال فترة السكون"
   ],
   "palestine_risk_season": [
-    "Spring (wet periods in West Bank highlands)"
+    "الربيع (فترات الأمطار والرطوبة في مرتفعات الضفة الغربية)"
   ],
   "local_advice": [
-    "Common in apple orchards; monitor humidity. Cultural practices key in resource-limited settings."
+    "مرض شائع في بساتين التفاح؛ راقب مستويات الرطوبة باستمرار. الممارسات الزراعية السليمة أساسية في ظروف الإمكانات المحدودة."
   ],
   "sources": [
-    "Plantwise Knowledge Bank; regional Levant pome fruit research (Jordan/Lebanon analogs)"
+    "بنك معرفة Plantwise؛ أبحاث الفاكهة ذات النواة في منطقة بلاد الشام (نماذج الأردن ولبنان)"
   ]
 }
