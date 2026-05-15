@@ -15,9 +15,13 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 import json
 import os
+from sklearn.metrics import confusion_matrix, classification_report
 
 # ============================================================
 # CONFIGURATION
@@ -38,7 +42,7 @@ print("📂 Loading dataset...")
 
 # Data augmentation for training (helps model generalize)
 train_datagen = ImageDataGenerator(
-    rescale=1./255,
+    preprocessing_function=preprocess_input,
     rotation_range=20,
     width_shift_range=0.2,
     height_shift_range=0.2,
@@ -48,7 +52,7 @@ train_datagen = ImageDataGenerator(
 )
 
 val_datagen = ImageDataGenerator(
-    rescale=1./255,
+    preprocessing_function=preprocess_input,
     validation_split=0.2
 )
 
@@ -197,10 +201,62 @@ ax2.plot(history.history['loss'], label='Train Loss')
 ax2.plot(history.history['val_loss'], label='Val Loss')
 ax2.set_title('Model Loss')
 ax2.set_xlabel('Epoch')
+
+# Create reports directory
+reports_dir = "model/reports"
+os.makedirs(reports_dir, exist_ok=True)
+
+# ── Training History Graph ──
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+ax1.plot(history.history['accuracy'], label='Train Accuracy')
+ax1.plot(history.history['val_accuracy'], label='Val Accuracy')
+ax1.set_title('Model Accuracy')
+ax1.set_xlabel('Epoch')
+ax1.set_ylabel('Accuracy')
+ax1.legend()
+
+ax2.plot(history.history['loss'], label='Train Loss')
+ax2.plot(history.history['val_loss'], label='Val Loss')
+ax2.set_title('Model Loss')
+ax2.set_xlabel('Epoch')
+ax2.set_ylabel('Loss')
 ax2.legend()
 
-plt.savefig('model/training_history.png', dpi=150, bbox_inches='tight')
-print("✅ Training plot saved to: model/training_history.png")
+plt.tight_layout()
+plt.savefig(os.path.join(reports_dir, 'training_history.png'), dpi=100, bbox_inches='tight')
+print(f"✅ Training history plot saved to: {reports_dir}/training_history.png")
+plt.close()
+
+# ── Confusion Matrix ──
+print("\n📊 Generating confusion matrix...")
+val_predictions = model.predict(val_generator, verbose=0)
+val_true = val_generator.classes
+val_pred = np.argmax(val_predictions, axis=1)
+
+cm = confusion_matrix(val_true, val_pred)
+
+plt.figure(figsize=(14, 12))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
+            xticklabels=list(class_labels.keys()), 
+            yticklabels=list(class_labels.keys()),
+            cbar_kws={'label': 'Count'})
+plt.title('Confusion Matrix - Validation Data')
+plt.ylabel('True Label')
+plt.xlabel('Predicted Label')
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.savefig(os.path.join(reports_dir, 'confusion_matrix.png'), dpi=100, bbox_inches='tight')
+print(f"✅ Confusion matrix saved to: {reports_dir}/confusion_matrix.png")
+plt.close()
+
+# ── Classification Report ──
+print("📋 Generating classification report...")
+report = classification_report(val_true, val_pred, target_names=list(class_labels.keys()), digits=4)
+with open(os.path.join(reports_dir, 'classification_report.txt'), 'w', encoding='utf-8') as f:
+    f.write(report)
+print(f"✅ Classification report saved to: {reports_dir}/classification_report.txt")
 
 # Final evaluation
 val_loss, val_acc = model.evaluate(val_generator, verbose=0)

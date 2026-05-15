@@ -67,7 +67,7 @@ class PlantDiseasePredictor:
             img = self.preprocess_image(image_data)
             predictions = self.model.predict(img, verbose=0)
             confidence = float(np.max(predictions))
-            if confidence < 0.60:
+            if confidence < 0.40:
               return {
                   "success": False,
                   "error": "Unable to confidently identify the disease",

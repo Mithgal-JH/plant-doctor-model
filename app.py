@@ -91,6 +91,7 @@ def analyze():
         result = predictor.predict(image_data)
 
         if not result.get("success"):
+
             return jsonify(result)
 
         class_name = result.get("class_name")
@@ -98,25 +99,42 @@ def analyze():
         raw = KNOWLEDGE_BASE.get(class_name, {})
 
         disease_info = {
+
             "name_ar": raw.get("arabic_name", "غير معروف"),
+
             "name_en": raw.get("disease", class_name),
 
             "severity": raw.get("severity", "medium"),
+
             "cause": raw.get("cause", "غير معروف"),
 
-            "symptoms_ar": "، ".join(raw.get("symptoms", [])),
+            "symptoms_ar": "، ".join(
+                raw.get("symptoms", [])
+            ),
 
-            "treatment_ar": "، ".join(raw.get("treatments", [])),
+            "treatment_ar": "، ".join(
+                raw.get("treatments", [])
+            ),
 
-            "prevention_ar": "، ".join(raw.get("prevention", [])),
+            "prevention_ar": "، ".join(
+                raw.get("prevention", [])
+            ),
 
-            "local_pesticides": "، ".join(raw.get("local_pesticides", [])),
+            "local_pesticides": "، ".join(
+                raw.get("local_pesticides", [])
+            ),
 
-            "local_advice": "، ".join(raw.get("local_advice", [])),
+            "local_advice": "، ".join(
+                raw.get("local_advice", [])
+            ),
 
-            "risk_season": "، ".join(raw.get("palestine_risk_season", [])),
+            "risk_season": "، ".join(
+                raw.get("palestine_risk_season", [])
+            ),
 
-            "sources": "، ".join(raw.get("sources", [])),
+            "sources": "، ".join(
+                raw.get("sources", [])
+            ),
 
             "emoji": raw.get("emoji", "🌿")
         }
@@ -136,7 +154,11 @@ def analyze():
         }
 
         return jsonify({
+
+            "success": True,
+
             **result,
+
             **disease_info,
 
             "severity_color": SEVERITY_COLORS.get(
@@ -152,11 +174,12 @@ def analyze():
 
     except Exception as e:
 
+        print("ERROR:", e)
+
         return jsonify({
             "success": False,
             "error": str(e)
         }), 500
-
 
 @app.route("/chat", methods=["POST"])
 def chat():
